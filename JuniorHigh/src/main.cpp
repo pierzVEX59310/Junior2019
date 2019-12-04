@@ -38,6 +38,25 @@ competition Competition;
 /*  not every time that the robot is disabled.                               */
 /*---------------------------------------------------------------------------*/
 
+
+void tankDrive(int leftSpeed, int rightSpeed){
+  FrontLeft.setVelocity(leftSpeed, percent);
+  RearLeft.setVelocity(leftSpeed, percent);
+  FrontRight.setVelocity(rightSpeed,percent);
+  RearRight.setVelocity(rightSpeed,percent);
+  FrontLeft.spin(forward);
+  FrontRight.spin(forward);
+  RearLeft.spin(forward);
+  RearRight.spin(forward);
+}
+
+void intake(int speed){
+  LeftIntake.setVelocity(speed,percent);
+  RightIntake.setVelocity(speed,percent);
+  LeftIntake.spin(forward);
+  RightIntake.spin(forward);
+}
+
 void pre_auton(void) {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
@@ -75,6 +94,15 @@ void autonomous(void) {
 void usercontrol(void) {
   // User control code here, inside the loop
   while (1) {
+
+    tankDrive(Controller1.Axis3.position(percent),Controller1.Axis2.position(percent));
+
+    if (Controller1.ButtonR1.pressing() && !Controller1.ButtonR2.pressing())
+      intake(50);
+    if (Controller1.ButtonR2.pressing() && !Controller1.ButtonR1.pressing())
+      intake(-50);
+    if (!Controller1.ButtonR1.pressing() && !Controller1.ButtonR2.pressing())
+      intake(0);
     // This is the main execution loop for the user control program.
     // Each time through the loop your program should update motor + servo
     // values based on feedback from the joysticks.
