@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*    Module:       main.cpp                                                  */
-/*    Author:       VEX                                                       */
+/*    Author:       Simon Kroll                                               */
 /*    Created:      Thu Sep 26 2019                                           */
 /*    Description:  Competition Template                                      */
 /*                                                                            */
@@ -57,6 +57,13 @@ void intake(int speed){
   RightIntake.spin(forward);
 }
 
+void tilt(int speed){
+  LeftTilt.setVelocity(speed,percent);
+  RightTilt.setVelocity(speed,percent);
+  LeftTilt.spin(forward);
+  RightTilt.spin(forward);
+}
+
 void pre_auton(void) {
   // Initializing Robot Configuration. DO NOT REMOVE!
   vexcodeInit();
@@ -99,19 +106,18 @@ void usercontrol(void) {
 
     if (Controller1.ButtonR1.pressing() && !Controller1.ButtonR2.pressing())
       intake(50);
-    if (Controller1.ButtonR2.pressing() && !Controller1.ButtonR1.pressing())
-      intake(-50);
-    if (!Controller1.ButtonR1.pressing() && !Controller1.ButtonR2.pressing())
-      intake(0);
-    // This is the main execution loop for the user control program.
-    // Each time through the loop your program should update motor + servo
-    // values based on feedback from the joysticks.
-
-    // ........................................................................
-    // Insert user code here. This is where you use the joystick values to
-    // update your motors, etc.
-    // ........................................................................
-
+      if (Controller1.ButtonR2.pressing() && !Controller1.ButtonR1.pressing())
+        intake(-50);
+     if (!Controller1.ButtonR1.pressing() && !Controller1.ButtonR2.pressing())
+        intake(0);
+    //
+    if (Controller1.ButtonL1.pressing() && !Controller1.ButtonL2.pressing())
+      tilt(25);
+      else if (!Controller1.ButtonL1.pressing() && Controller1.ButtonL2.pressing())
+        tilt(-50);
+        else
+          tilt(0);
+    //
     wait(20, msec); // Sleep the task for a short amount of time to
                     // prevent wasted resources.
   }
