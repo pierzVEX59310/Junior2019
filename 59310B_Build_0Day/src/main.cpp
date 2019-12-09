@@ -106,7 +106,7 @@ void usercontrol(void) {
 
     if (Controller1.ButtonR1.pressing() && !Controller1.ButtonR2.pressing())
       intake(50);
-<<<<<<< HEAD:JuniorHigh/src/main.cpp
+
     if (Controller1.ButtonR2.pressing() && !Controller1.ButtonR1.pressing())
       intake(-50);
     if (!Controller1.ButtonR1.pressing() && !Controller1.ButtonR2.pressing())
@@ -122,7 +122,7 @@ void usercontrol(void) {
     // update your motors, etc.
     // ........................................................................
 
-=======
+
       if (Controller1.ButtonR2.pressing() && !Controller1.ButtonR1.pressing())
         intake(-50);
      if (!Controller1.ButtonR1.pressing() && !Controller1.ButtonR2.pressing())
@@ -135,7 +135,7 @@ void usercontrol(void) {
         else
           tilt(0);
     //
->>>>>>> 641d0db486bd7d08800999c14583482d1e69cfeb:59310B_Build_0Day/src/main.cpp
+    
     wait(20, msec); // Sleep the task for a short amount of time to
                     // prevent wasted resources.
   }
