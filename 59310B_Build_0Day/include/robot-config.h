@@ -10,6 +10,8 @@ extern motor RearLeft;
 extern motor RearRight;
 extern motor LeftIntake;
 extern motor RightIntake;
+extern motor LeftTilt;
+extern motor RightTilt;
 
 /**
  * Used to initialize code/tasks/devices added using tools in VEXcode Text.

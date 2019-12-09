@@ -1,2 +1,4 @@
-*.mk
-*.json
+*.o
+*.bin
+*.elf
+*.map

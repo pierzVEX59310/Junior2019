@@ -15,6 +15,8 @@ motor RearLeft = motor(PORT3, ratio18_1, false);
 motor RearRight = motor(PORT4, ratio18_1, true);
 motor LeftIntake = motor(PORT5, ratio18_1, false);
 motor RightIntake = motor(PORT6, ratio18_1, true);
+motor LeftTilt = motor(PORT7, ratio18_1, false);
+motor RightTilt = motor(PORT8, ratio18_1, false);
 
 // VEXcode generated functions
 
