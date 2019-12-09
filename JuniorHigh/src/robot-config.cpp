@@ -12,7 +12,7 @@ controller Controller1 = controller(primary);
 motor FrontLeft = motor(PORT1, ratio18_1, false);
 motor FrontRight = motor(PORT2, ratio18_1, false);
 motor RearLeft = motor(PORT3, ratio18_1, false);
-motor RearRight = motor(PORT4, ratio18_1, false);
+motor RearRight = motor(PORT4, ratio18_1, true);
 motor LeftIntake = motor(PORT5, ratio18_1, false);
 motor RightIntake = motor(PORT6, ratio18_1, true);
 
